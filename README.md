@@ -32,3 +32,6 @@ config/routes.yaml --- all routes is added by default and type is set to attribu
 use Symfony\Component\Routing\Annotation\Route; (include above controller)
 
 #[Route('/path')] ---- annotation above method to link to route
+#[Route('/parmeter',methods:['GET','HEAD'])] ----- route methods
+#[Route('/parameter/{name}',methods:['GET','HEAD'])] ---- parameter (use $name as method argument to use it)
+#[Route('/parameter/{name}',methods:['GET','HEAD'], defaults:['name' => 'John'])] ----- with default
