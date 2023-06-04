@@ -63,3 +63,23 @@ Composer require twig ---- install twig template engine
 
 $data = ["key" => "value"];
 return $this->render('fileName.html.twig',['variableName' => $data]); --- in controller
+
+
+------------------------------------------------------------------------------------------
+
+# Creating Database
+
+## Installation 
+- composer require symfony/orm-pack
+- composer require --dev symfony/maker-bundle
+
+## Commands
+- symfony console list doctring --- list all doctrine commands
+- symfony console doctrine:database:create ---- create db
+- symfony console make:entity entityName
+
+## env configurations
+DATABASE_URL="mysql://user:pass@127.0.0.1:3306/DbName?serverVersion=8.0.32&charset=utf8mb4"
+
+## Entity (Tables)
+- location - src/Entity/entityName.php
