@@ -76,10 +76,17 @@ return $this->render('fileName.html.twig',['variableName' => $data]); --- in con
 ## Commands
 - symfony console list doctring --- list all doctrine commands
 - symfony console doctrine:database:create ---- create db
-- symfony console make:entity entityName
+- symfony console make:entity entityName ---create table or entity
+- symfony console make:migration --- create migration file
+- symfony console doctrine:migrations:migrate ---- run migration
 
 ## env configurations
 DATABASE_URL="mysql://user:pass@127.0.0.1:3306/DbName?serverVersion=8.0.32&charset=utf8mb4"
 
 ## Entity (Tables)
 - location - src/Entity/entityName.php
+- Realtion between two entities --- 
+    - create two entities
+    - run symfony console make:entity entityName and add key as other entity name according to relation (departments)
+    - add type as RelationName (ManyToMany, ManyToOne, OneToMany, OneToOne)
+    - Run migration it will automatically create pivot table (if needed ) and changes according to linkage
