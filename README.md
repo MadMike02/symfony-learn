@@ -53,6 +53,11 @@ Composer require twig ---- install twig template engine
 - {{variableName}} ---- for outputing variable 
 - {% if condition %} ... {% else %} ... {% endif %} --- if else
 - {% for item in items %} .... {% endfor %} ---- for loops
+- {% extends "base.html.twig" %} ---- extending base template
+- {% block title %} INDEX PAGE {% endblock %} ---- using blocks defined in template
+- {{ _self }} --- fileName
+- {{ _charset }} --- charset used
+- {{ globalVariabel }} --- globalVariabel(defined in Config/Packages/twig.yaml) 
 
 ### passing data in views from controller
 
