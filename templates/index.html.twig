@@ -1,0 +1,21 @@
+{% extends "base.html.twig" %}
+
+{% block title %} INDEX PAGE {% endblock %}
+
+{% block body %} 
+<h1>
+    THIS IS THE INDEX PAGE
+</h1> 
+
+{% if movies %}
+    <ol>
+        {% for movie in movies %}
+            <li>{{movie}}</li>  
+        {% endfor %}
+    </ol>
+{% else %}
+    <h4>NO MOVIES</h4>
+{% endif %}
+
+{% endblock %}
+

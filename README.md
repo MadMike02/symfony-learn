@@ -12,6 +12,7 @@ symfony server:stop --- stop a running server
 symfony open:local --- open project in browser (127.0.0.1:8000)
 symfony console debug:router --- list out all routes
 symfony help --- all available commands list
+symfony console ----all list of commands
 
 --------------------------------------------------------------------------------------
 php bin/console --- all commands list
@@ -35,3 +36,25 @@ use Symfony\Component\Routing\Annotation\Route; (include above controller)
 #[Route('/parmeter',methods:['GET','HEAD'])] ----- route methods
 #[Route('/parameter/{name}',methods:['GET','HEAD'])] ---- parameter (use $name as method argument to use it)
 #[Route('/parameter/{name}',methods:['GET','HEAD'], defaults:['name' => 'John'])] ----- with default
+
+
+--------------------------------------------------------------------------------------
+
+# View Components
+
+Composer require twig ---- install twig template engine
+
+- include use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+- extends AbstractController in controller
+- use $this->render('fileName.html.twig') ---- default folder is templates in root directory
+
+## TWIG BASICS
+
+- {{variableName}} ---- for outputing variable 
+- {% if condition %} ... {% else %} ... {% endif %} --- if else
+- {% for item in items %} .... {% endfor %} ---- for loops
+
+### passing data in views from controller
+
+$data = ["key" => "value"];
+return $this->render('fileName.html.twig',['variableName' => $data]); --- in controller
