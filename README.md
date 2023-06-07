@@ -117,3 +117,8 @@ DATABASE_URL="mysql://user:pass@127.0.0.1:3306/DbName?serverVersion=8.0.32&chars
 - Run fixture using -- ```symfony console doctrine:fixtures:load```
 
 ## Repositories
+
+- Add repository in controller method argument and use methods
+- findAll(), find(ID), findBy(['id' => 1], ['id' => 'DESC']), count(['status' => 1]), getClassName() -> current entity name
+
+## Compiling Assests
