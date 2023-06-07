@@ -90,3 +90,30 @@ DATABASE_URL="mysql://user:pass@127.0.0.1:3306/DbName?serverVersion=8.0.32&chars
     - run symfony console make:entity entityName and add key as other entity name according to relation (departments)
     - add type as RelationName (ManyToMany, ManyToOne, OneToMany, OneToOne)
     - Run migration it will automatically create pivot table (if needed ) and changes according to linkage
+## Data Fixtures
+- ```composer require --dev doctrine/doctrine-fixtures-bundle``` --- install bundle
+- It will create new folder DataFixtures in root which contain file. Import Entity in fixture and to add data and reference to pivot table use this 
+- ```
+        UserFixtures.php
+
+        $user = new User();
+        $user->setName('John Doe');
+        $user->setUMail('John@doe.com');
+        $user->setStatus(1);
+
+        $this->addReference('user-1',$user);
+        $manager->persist($user);
+        $manager->flush();``` 
+- ```
+    DepartmentFixtures.php
+
+     $dept = new Department();
+        $dept->setDeptName('Manager');
+        $dept->addUser($this->getReference('user-1'));
+        
+        $manager->persist($dept);
+        $manager->flush();
+    ```
+- Run fixture using -- ```symfony console doctrine:fixtures:load```
+
+## Repositories
