@@ -128,3 +128,16 @@ DATABASE_URL="mysql://user:pass@127.0.0.1:3306/DbName?serverVersion=8.0.32&chars
 - To use webpack in our application install - ```composer require symfony/asset``` 
 - Add css changes in assets/style/app.css and compile using ```npm run watch``` (packages.json), to link the compiled file -- ```<link rel="stylesheet" href=""{{asset('build/app.css')}}```/>
 - check ```webpack.config.js``` for paths and commands in ```package.json``` file
+
+## using images
+- place files in `assets/images/file.jpg`
+- install `npm install file-loader`
+- add in webpack.config.json 
+    ```
+    .copyFiles({
+        from: './assets/images',
+        to: 'images/[path][name].[hash:8].[ext]',
+        pattern: /\.(png|jpg|jpeg)$/
+    })
+    ```
+- `npm run build` and use path as `<img src="{{asset("build/images/img.8c2c0eac.jpg")}}"/>`
