@@ -118,7 +118,13 @@ DATABASE_URL="mysql://user:pass@127.0.0.1:3306/DbName?serverVersion=8.0.32&chars
 
 ## Repositories
 
+- Automatically gets created when entity created-  symfony console make:entity entityName
 - Add repository in controller method argument and use methods
 - findAll(), find(ID), findBy(['id' => 1], ['id' => 'DESC']), count(['status' => 1]), getClassName() -> current entity name
 
 ## Compiling Assests
+- ```composer require symfony/webpack-encore-bundle``` -- intalling webpak
+- it will create new folder <app> in root directory which contains the css and js which are need to be compiled by webpack and the compiled folder will be at public/build/app.css for css.
+- To use webpack in our application install - ```composer require symfony/asset``` 
+- Add css changes in assets/style/app.css and compile using ```npm run watch``` (packages.json), to link the compiled file -- ```<link rel="stylesheet" href=""{{asset('build/app.css')}}```/>
+- check ```webpack.config.js``` for paths and commands in ```package.json``` file
