@@ -47,6 +47,9 @@ Composer require twig ---- install twig template engine
 - include use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 - extends AbstractController in controller
 - use $this->render('fileName.html.twig') ---- default folder is templates in root directory
+- enable html templating for twig file also on VScode -- 
+setings-- search -- settings--- edit settings.json---
+add -- ` "emmet.includeLanguages": {"twig" : "html"},`
 
 ## TWIG BASICS
 
@@ -141,3 +144,30 @@ DATABASE_URL="mysql://user:pass@127.0.0.1:3306/DbName?serverVersion=8.0.32&chars
     })
     ```
 - `npm run build` and use path as `<img src="{{asset("build/images/img.8c2c0eac.jpg")}}"/>`
+
+## forms
+- `composer require symfony/fom`
+- `symfony console make:form EntityFormType EntityName(form should be connected with this entity)`
+- `composer require symfony/validator doctrine/annotations` ---- to validate fields using annotations in entity class when submitting forms
+- Add `?` before arguments name in setter methods in entity to validate null values
+- Create form in App\Form\EntityFormType and render form in view by 
+```
+{{form_start(form)}}
+    {{form_widget(form)}}
+    <button type='submit' value="submitForm"/>
+{{form_end(form)}}
+
+```
+
+- `form` is comming from controller 
+
+## AUTHORIZATION
+
+- `composer require symfony/security-bundle`
+- Authentication - verify user and give him some access to do things
+- Authorization - Check user is allowed to do those things or not
+- `Symfony console make:user User` --- make user entity, repository and update security.yaml file
+- make migration and migrate DB.
+- `symfony console make:registration-form` -- create registration form (create controller, template and formType)
+- `symfony console make:auth` -- create controller and all
+- {{ app.user.email }} -- in twig file will give current logged in user 
